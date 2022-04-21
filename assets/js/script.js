@@ -108,3 +108,31 @@ function handleClick(){
     }
 
 }
+
+function quizEnd(){
+
+    // here  you want to stop the timer
+    // hide the questionsContainer
+    // show the endQuiz div
+    // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
+    //
+}
+
+// when submit button is clicked call saveHighScore()
+var initialsInput = document.getElementById("initials")
+function saveHighScore(){
+   // var intialsValue = initialsInput.value.trim()
+   // var score = correct/questions.length   ** again youre going to need to remove the 0. 
+
+    // test to make sure something was entered in initials otherwise dont do anything
+
+    var newScore = {
+        intials: initialsValue,
+        score: score
+    }
+    
+    // save newScore to localstorage
+    //
+
+
+}
