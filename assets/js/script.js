@@ -1,7 +1,3 @@
-var highScoreEl = document.querySelector("#high-score-button");
-var startQuizEl = document.querySelector("#start-button");
-var timer = 60;
-
     // Questions for quiz
 var quizQuestions = [
     {
@@ -46,41 +42,28 @@ var quizQuestions = [
     }
 ];
 
-var askQuestion = function() {
-    // questionsContainerEl.innerHTML = "";
-    questionContainerEl = document.createElement("div");
-    // questionContainerEl.className = "question-actions";
-       
-    var question1 = document.createElement("li");   
-    question1.textContent = "Hello there"; 
-    questionContainerEl.appendChild(question1);
+var startQuizEl = document.querySelector("#start-button");
+var currentQuestion = 0;
 
-    var question2 = document.createElement("li");
-    questionContainerEl.appendChild(question2);
+function RenderQuestion(questionIndex)  {
+var container = document.createElement("div");
+var question = document.createElement("h2");
+var option1 = document.createElement("button");
+var option2 = document.createElement("button");
+var option3 = document.createElement("button");
+var option4 = document.createElement("button");
 
-    var question3 = document.createElement("li")
-    questionContainerEl.appendChild(question3);
+question.textContent = "What's your favorite Color?"
+option1.textContent = "Blue"
+option2.textContent = "Red"
+option3.textContent = "Green"
+option4.textContent = "Fuchsia"
 
-    var question4 = document.createElement("li");
-    questionContainerEl.appendChild(question4);
-
-    var question5 = document.createElement("li");
-    questionContainerEl.appendChild(question5);
-};
-
-
-var quiz = function(event) {
-    event.preventDefault();
-    //resetDisplay(); 
-    askQuestion (quizQuestions);
-};
-
-var highScores = function() {
-    alert("button clicked");
-};
-
-    // click for high score
-highScoreEl.addEventListener("click", highScores);
-
-    // cick to start quiz
-startQuizEl.addEventListener("click", askQuestion);
+document.body.appendChild(container);
+container.appendChild(question);
+container.appendChild(option1);
+container.appendChild(option2);
+container.appendChild(option3);
+container.appendChild(option4);
+}
+startQuizEl.addEventListener('click', RenderQuestion(currentQuestion))

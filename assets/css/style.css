@@ -24,11 +24,10 @@ header {
     width: 95%;
 }
 
-.btn-score {
+.high-score {
     text-align:left;
-    border-radius: 30px;
-    background-color: #2e88bd;
-    box-shadow: 0 1px;
+    border-radius: 1px;    
+    border: none;
 }
 
 .btn {
@@ -51,6 +50,12 @@ header {
 h1, p {
     font-size: 1.6rem;
     padding: 0 0 50px;
+}
+
+.quiz-container {
+    justify-content: center;
+    display: flex block;
+    margin: 10px;
 }
 
 footer {
