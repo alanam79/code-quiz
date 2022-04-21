@@ -42,22 +42,22 @@ var quizQuestions = [
     }
 ];
 
-var startQuizEl = document.querySelector("#start-button");
+var startBtn = document.querySelector("#start-button");
 var currentQuestion = 0;
 
 function RenderQuestion(questionIndex)  {
 var container = document.createElement("div");
 var question = document.createElement("h2");
-var option1 = document.createElement("button");
-var option2 = document.createElement("button");
-var option3 = document.createElement("button");
-var option4 = document.createElement("button");
+var answera = document.createElement("button");
+var answerb = document.createElement("button");
+var answerc = document.createElement("button");
+var answerd= document.createElement("button");
 
-question.textContent = "What's your favorite Color?"
-option1.textContent = "Blue"
-option2.textContent = "Red"
-option3.textContent = "Green"
-option4.textContent = "Fuchsia"
+question.textContent = questionIndex.Q
+answera.textContent = questionIndex.A
+answerb.textContent = questionIndex.B
+answerc.textContent = questionIndex.C
+answerd.textContent = questionIndex.D
 
 document.body.appendChild(container);
 container.appendChild(question);
@@ -66,4 +66,4 @@ container.appendChild(option2);
 container.appendChild(option3);
 container.appendChild(option4);
 }
-startQuizEl.addEventListener('click', RenderQuestion(currentQuestion))
+startBtn.addEventListener('click', RenderQuestion(currentQuestion))
