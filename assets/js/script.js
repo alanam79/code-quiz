@@ -45,7 +45,7 @@ var quizQuestions = [
 var startBtn = document.querySelector("#start-button");
 var currentQuestion = 0;
 
-function RenderQuestion(questionIndex)  {
+function RenderQuestion()  {
 var container = document.createElement("div");
 var question = document.createElement("h2");
 var answera = document.createElement("button");
@@ -53,17 +53,20 @@ var answerb = document.createElement("button");
 var answerc = document.createElement("button");
 var answerd= document.createElement("button");
 
-question.textContent = questionIndex.Q
-answera.textContent = questionIndex.A
-answerb.textContent = questionIndex.B
-answerc.textContent = questionIndex.C
-answerd.textContent = questionIndex.D
 
 document.body.appendChild(container);
+
 container.appendChild(question);
-container.appendChild(option1);
-container.appendChild(option2);
-container.appendChild(option3);
-container.appendChild(option4);
+container.appendChild(answera);
+container.appendChild(answerb);
+container.appendChild(answerc);
+container.appendChild(answerd);
+
+question.textContent = quizQuestions[currentQuestion].Q;
+answera.textContent = quizQuestions[currentQuestion].A;
+answerb.textContent = quizQuestions[currentQuestion].B;
+answerc.textContent = quizQuestions[currentQuestion].C;
+answerd.textContent = quizQuestions[currentQuestion].D;
 }
-startBtn.addEventListener('click', RenderQuestion(currentQuestion))
+
+startBtn.addEventListener('click', RenderQuestion)
