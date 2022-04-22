@@ -24,7 +24,7 @@ header {
     width: 95%;
 }
 
-.high-score {
+header nav {
     text-align:left;
     display: flex;
     justify-content: space-evenly;
@@ -36,10 +36,11 @@ header {
     border: none;
     display:inline-block;
     font-size: 1.0rem;
-    padding: 5px;
+    padding: 10px 40px 10px;
     margin: 10px;
-    border-radius: 30px;
-    background-color: #2e88bd;
+    border-radius: 10px;
+    background-color: rgb(35, 35, 133);
+    color: white;
     box-shadow: 0 3px;
 }
 
@@ -53,9 +54,20 @@ h1, p {
     padding: 0 0 50px;
 }
 
-h4 {
-    
 
+.choice {
+    background-color: rgb(35, 35, 133);
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 1.0rem;
+    padding: 10px 40px 10px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 3px;
+    display: flex;
+    justify-content: flex-start;
+    width: 170px;
 }
 
 .quiz-container {

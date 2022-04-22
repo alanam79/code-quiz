@@ -2,47 +2,27 @@
 var quizQuestions = [
     {
         Q: "Commonly used data types DO not include:",
-        // A: "1. strings",
-        // B: "2. booleans",
-        // C: "3. alerts",
-        // D: "4. numbers",
-        choices: ["strings", "booleans", "alerts", "numbers"],
+        choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
         answer: "alerts"
     },
     {
         Q: "Arrays in JavaScript can be used to store _______.",
-        // A: "1. numbers and strings",
-        // B: "2. other arrays",
-        // C: "3. boolens",
-        // D: "4. all of the above",
-        choices: ["numbers and strings", "other arrays", "booleans", "all of the above"],
+        choices: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
         answer: "all of the above"
     },
     {
         Q: "String values must be enclosed with _____ when being assigned to variables",
-        // A: "1. commas",
-        // B: "2. curly brackets",
-        // C: "3. quotes",
-        // D: "4. parenthesis",
-        choices: ["commas", "curly brackets", "quotes", "parenthesis"],
+        choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"],
         answer: "quotes"
     },
     {
         Q: "The condition in an if/else statement is enclosed with ______.",
-        // A: "1. quotes",
-        // B: "2. curly brackets",
-        // C: "3. parenthesis",
-        // D: "4. square brackets",
-        choices: ["quotes", "curly brackets", "parenthesis", "square brackets"],
+        choices: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"],
         answer: "parenthesis"
     },
     {
         Q: "A very useful tool used during development and debuggin for printing content to the debugger is:",
-        // A: "1. JavaScript",
-        // B: "2. terminal/bash",
-        // C: "3. for loops",
-        // D: "4. console.log",
-        choices: ["JavaScript", "terminal/bash", "for loops", "console.log"],
+        choices: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
         answer: "console.log"
     }
 ];
@@ -57,6 +37,7 @@ var timeLeft = 75;
 var correct = 0;
 var currentQuestionIndex = 0;
 
+    //timer function
 function timer(){
     timerEl.textContent = "Time remaining: " + timeLeft + "s";
     quizDuration = setInterval(function(){
@@ -139,6 +120,7 @@ function quizEnd(){
 
 // when submit button is clicked call saveHighScore()
 var initialsInput = document.getElementById("initials")
+
 function saveHighScore(){
    // var intialsValue = initialsInput.value.trim()
    // var score = correct/questions.length   ** again youre going to need to remove the 0. 
@@ -150,6 +132,5 @@ function saveHighScore(){
         score: score
     }
     
-    // save newScore to localstorage
-    //
+    // save newScore to localstorage    
 }
