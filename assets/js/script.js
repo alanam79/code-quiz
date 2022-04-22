@@ -110,11 +110,12 @@ function handleClick(){
 }
     // endQuiz
 function endQuiz() {      
+        // here  you want to stop the timer
+        clearInterval(quizDuration);
+        
     // hide the questionsContainer and show end screen
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "block"
-
-    // here  you want to stop the timer
     // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
 }
 
