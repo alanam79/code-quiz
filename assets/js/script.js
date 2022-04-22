@@ -109,16 +109,16 @@ function handleClick(){
     }
 }
 
-var allDoneScreen = document.querySelector("#all-done");
+var allDoneScreen = document.getElementById("all-done");
 
     // endQuiz
 function endQuiz() {      
     // hide the questionsContainer and show end screen
     quizScreen.classList.add("hide");
-    // allDoneScreen.removeAttribute("class");
+    allDoneScreen.removeAttribute("class");
 
-    var endPage = document.createElement("h2");
-    questionContainer.appendChild(endPage);
+    var endPageEl = document.createElement("h2");
+    questionContainer.appendChild(endPageEl);
 
     // here  you want to stop the timer
     // show the endQuiz div
