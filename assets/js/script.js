@@ -33,7 +33,7 @@ var quizScreen = document.querySelector("#quiz-container");
 var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
 var timerEl = document.getElementById ("countdown");
-var timeLeft = 75;
+var timeLeft = 10;
 var correct = 0;
 var currentQuestionIndex = 0;
 
@@ -93,26 +93,30 @@ function showQuestion()  {
 
 function handleClick(){
 // testing value of button against currentQuestion answer
-    if(this.value === quizQuestions[currentQuestionIndex].answer ){
+    if(this.value === quizQuestions[currentQuestionIndex].answer){
         correct++
     } else {
-        // remove 10 seconds from timer
+        // adjustTime(-10);
     }
     // add 1 to currentquestion index
     currentQuestionIndex++
 
     // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
     if(currentQuestionIndex === quizQuestions.length){
-        // fire off endQuiz() function
+        // quizEnd();
     } else {
         showQuestion()
     }
 }
 
-function quizEnd(){
+    // endQuiz
+function endQuiz() {
+    resetDefault();
+        // hide the questionsContainer
+    quizScreen.classList.add("hide");
+    startScreen.removeAttribute("class")
 
     // here  you want to stop the timer
-    // hide the questionsContainer
     // show the endQuiz div
     // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
     //
