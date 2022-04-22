@@ -33,9 +33,11 @@ var quizScreen = document.querySelector("#quiz-container");
 var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
 var timerEl = document.getElementById ("countdown");
+var endQuizContainer = document.getElementById ("endQuiz");
 var timeLeft = 5;
 var correct = 0;
 var currentQuestionIndex = 0;
+
 
     //timer function
 function timer(){
@@ -56,17 +58,16 @@ function adjustTime(amount) {
     timerEl.textContent ="Time remaining: " + timeLeft + "s";
 }
 
-    // start timer
-startButton.onclick = timer;
-
     // starts quiz
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-    startScreen.classList.add("hide");
-    quizScreen.removeAttribute("class")
+    timer();
+    startScreen.style.display = "none";
+    // quizScreen.removeAttribute("class")
     showQuestion();
   }
+
 
 function showQuestion()  { 
     var currentQuestion = quizQuestions[currentQuestionIndex];  
@@ -103,22 +104,18 @@ function handleClick(){
 
     // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
     if(currentQuestionIndex === quizQuestions.length){
-        // quizEnd();
+        endQuiz();
     } else {
         showQuestion()
     }
 }
 
-var allDoneScreen = document.getElementById("all-done");
 
     // endQuiz
 function endQuiz() {      
     // hide the questionsContainer and show end screen
-    quizScreen.classList.add("hide");
-    allDoneScreen.removeAttribute("class");
-
-    var endPageEl = document.createElement("h2");
-    questionContainer.appendChild(endPageEl);
+    quizScreen.style.display = "none"
+    endQuizContainer.style.display = "block"
 
     // here  you want to stop the timer
     // show the endQuiz div

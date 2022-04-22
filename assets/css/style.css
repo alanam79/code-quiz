@@ -54,6 +54,7 @@ h1, p {
     padding: 0 0 50px;
 }
 
+
 .choice {
     background-color: rgb(35, 35, 133);
     color: white;
@@ -75,8 +76,12 @@ h1, p {
     margin: 10px;
 }
 
-.hide {
+#endQuiz {
+    display:none;
+}
+
+/* .hide {
     display: none;
-  }
+  } */
 
 
