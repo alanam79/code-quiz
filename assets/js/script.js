@@ -68,7 +68,6 @@ function startGame() {
     showQuestion();
   }
 
-
 function showQuestion()  { 
     var currentQuestion = quizQuestions[currentQuestionIndex];  
     
@@ -109,8 +108,6 @@ function handleClick(){
         showQuestion()
     }
 }
-
-
     // endQuiz
 function endQuiz() {      
     // hide the questionsContainer and show end screen
@@ -118,9 +115,7 @@ function endQuiz() {
     endQuizContainer.style.display = "block"
 
     // here  you want to stop the timer
-    // show the endQuiz div
     // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
-    //
 }
 
 // when submit button is clicked call saveHighScore()
@@ -135,7 +130,6 @@ function saveHighScore(){
     var newScore = {
         initials: initialsValue,
         score: score
-    }
-    
+    }    
     // save newScore to localstorage    
 }
