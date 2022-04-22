@@ -52,8 +52,8 @@ var startScreen = document.querySelector("#start-screen");
 var quizScreen = document.querySelector("#quiz-container");
 var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
-var timerEl = document.getElementById ("#countdown");
-var timeLeft = 60;
+var timerEl = document.getElementById ("countdown");
+var timeLeft = 75;
 var correct = 0;
 var currentQuestionIndex = 0;
 
