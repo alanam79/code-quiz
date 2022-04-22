@@ -33,7 +33,7 @@ var quizScreen = document.querySelector("#quiz-container");
 var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
 var timerEl = document.getElementById ("countdown");
-var timeLeft = 10;
+var timeLeft = 5;
 var correct = 0;
 var currentQuestionIndex = 0;
 
@@ -109,12 +109,16 @@ function handleClick(){
     }
 }
 
+var allDoneScreen = document.querySelector("#all-done");
+
     // endQuiz
-function endQuiz() {
-    resetDefault();
-        // hide the questionsContainer
+function endQuiz() {      
+    // hide the questionsContainer and show end screen
     quizScreen.classList.add("hide");
-    startScreen.removeAttribute("class")
+    // allDoneScreen.removeAttribute("class");
+
+    var endPage = document.createElement("h2");
+    questionContainer.appendChild(endPage);
 
     // here  you want to stop the timer
     // show the endQuiz div
