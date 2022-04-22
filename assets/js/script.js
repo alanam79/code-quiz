@@ -1,4 +1,4 @@
-    // Questions for quiz
+// Questions for quiz
 var quizQuestions = [
     {
         Q: "Commonly used data types DO not include:",
@@ -52,10 +52,32 @@ var startScreen = document.querySelector("#start-screen");
 var quizScreen = document.querySelector("#quiz-container");
 var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
-//var startScreen = document.getElementById("start-screen");
-
+var timerEl = document.getElementById ("#countdown");
+var timeLeft = 60;
 var correct = 0;
 var currentQuestionIndex = 0;
+
+function timer(){
+    timerEl.textContent = "Time remaining: " + timeLeft + "s";
+    quizDuration = setInterval(function(){
+        if (timeLeft > 0) {
+            adjustTime(-1);
+        } else {
+            endQuiz();
+        }
+    },1000);
+}
+function adjustTime(amount) {
+    timeLeft += amount;
+    if (timeLeft < 0) {
+        timeLeft = 0;
+    }
+    timerEl.textContent ="Time remaining: " + timeLeft + "s";
+}
+
+    // start timer
+startButton.onclick = timer;
+
     // starts quiz
 startButton.addEventListener("click", startGame);
 
@@ -86,8 +108,6 @@ function showQuestion()  {
 
         choicesContainer.appendChild(choiceBtn)
     })
-
-
 }
 
 function handleClick(){
@@ -106,7 +126,6 @@ function handleClick(){
     } else {
         showQuestion()
     }
-
 }
 
 function quizEnd(){
@@ -127,12 +146,10 @@ function saveHighScore(){
     // test to make sure something was entered in initials otherwise dont do anything
 
     var newScore = {
-        intials: initialsValue,
+        initials: initialsValue,
         score: score
     }
     
     // save newScore to localstorage
     //
-
-
 }
