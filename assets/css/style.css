@@ -87,7 +87,7 @@ h1, p {
 .answer-results {
     font-size: 1.6rem;
     color:  grey;
-    border-top: 5px solid grey;
+    /* border-top: 5px solid grey; */
     padding: 10px;
 }
 

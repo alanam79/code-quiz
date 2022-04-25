@@ -133,10 +133,9 @@ var initialsInput = document.getElementById("initials")
 scoreButton.addEventListener("click", viewScores);
 
 function viewScores() {
-    quizScreen.style.display = "none"
-    
     // quizScreen.removeAttribute("class")
- 
+    quizScreen.style.display = "none"
+    startScreen.style.display = "none";
   }
 
 function saveHighScore(){
