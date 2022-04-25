@@ -30,6 +30,11 @@ a:visited, a:link {
     width: 95%;
 }
 
+.high-score-btn {
+    background-color: transparent;
+    color: rgb(185, 123, 133);
+    border-color: transparent;
+}
 
 .btn {
     outline: none;
@@ -69,7 +74,6 @@ a:visited, a:link {
     color: white;
     box-shadow: 0 3px;
 }
-
 
 .btn:hover {
     box-shadow: 0 2px;
