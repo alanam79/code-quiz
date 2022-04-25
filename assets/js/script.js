@@ -114,6 +114,17 @@ function handleClick(){
     }
 };
 
+// var startGame = function (event) {
+//     event.preventDefault();
+//     resetDisplay();
+//     showQuestion(questions[currentQuestionIndex]);
+// };
+
+// function startScreen() {
+//     questionContainer.innerHTML="";
+//     document.querySelector("#start-screen").style.display = "none";
+// }
+
     // endQuiz
 function endQuiz() {      
         // here  you want to stop the timer
@@ -138,5 +149,31 @@ function saveHighScore(){
         initials: initialsValue,
         score: score
     }    
-    // save newScore to localstorage    
+    // save newScore to localstorage   
+    
+
+var submitInitialBtn = document.createElement("button");
+    submitInitialBtn.textContent = "Submit";
+    blank.appendChild(submitInitialBtn);
+
+    submitInitialBtn.addEventListener("click", () => {
+        // rest variable
+        
+        if (initialBox.value.length === 0) return false;
+
+        let storeInitials = (...input) => {
+            let data = JSON.stringify({ "name":input[0], "score":input[1]})
+            localStorage.setItem("object", data)
+        }
+        storeInitials(initialBox.value, userScore);
+
+        var playAgain = document.createElement("button");
+        playAgain.textContent= "Play Again!";
+        blank.appendChild(playAgain);
+
+        playAgain.addEventListener("click", () => {
+            location.reload();
+        })
+    });
+    
 }
