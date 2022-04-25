@@ -38,6 +38,33 @@ header {
     box-shadow: 0 3px;
 }
 
+.score-btn {
+    outline: none;
+    border: none;
+    display:inline-block;
+    font-size: 1.0rem;
+    padding: 10px 40px 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgb(35, 35, 133);
+    color: white;
+    box-shadow: 0 3px;
+}
+
+.submit-btn {
+    outline: none;
+    border: none;
+    display:inline-block;
+    font-size: 1.0rem;
+    padding: 5px 10px 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: rgb(35, 35, 133);
+    color: white;
+    box-shadow: 0 3px;
+}
+
+
 .btn:hover {
     box-shadow: 0 2px;
     top: -2px;
@@ -47,6 +74,11 @@ header {
 h1, p {
     font-size: 1.6rem;
     padding: 0 0 50px;
+}
+
+h2 {
+    margin: 40px 0 40px;
+    text-align: center;
 }
 
 .choice {

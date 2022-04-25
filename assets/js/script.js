@@ -22,7 +22,7 @@ var quizQuestions = [
         answer: "3. parenthesis"
     },
     {
-        Q: "A very useful tool used during development and debuggin for printing content to the debugger is:",
+        Q: "A very useful tool used during development and debugging for printing content to the debugger is:",
         choices: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
         answer: "4. console.log"
     }
@@ -120,7 +120,7 @@ function handleClick(){
 };
 
     // endQuiz
-function endQuiz() {      
+function endQuiz() {  
         // stop the timer
     clearInterval(quizDuration);
     timerEl.textContent = "";
@@ -129,6 +129,11 @@ function endQuiz() {
     endQuizContainer.style.display = "block"
     scoreContainer.style.display = "none"
         // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
+
+        // button element
+    // var initialsBtn = document.createElement("button");
+    //     initialsBtn.innerHTML="Submit";
+    //     document.appendChild(initialsBtn);
 }
 
     // click highscore button
@@ -144,8 +149,6 @@ function highScore() {
     timerEl.textContent = "";
 }
 
-// when submit button is clicked call saveHighScore()
-var initialsInput = document.getElementById("initials")
 
 function saveHighScore(){
    // var intialsValue = initialsInput.value.trim()
