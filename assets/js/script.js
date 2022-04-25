@@ -1,3 +1,4 @@
+scoreContainer.style.display = "none"
 // Questions for quiz
 var quizQuestions = [
     {
@@ -62,14 +63,12 @@ function adjustTime(amount) {
     timerEl.textContent ="Time remaining: " + timeLeft + "s";
 }
 
-
-
     // starts quiz
 startButton.addEventListener("click", startGame);
 
 function startGame() {
     timer();
-    startScreen.style.display = "none";    
+    startScreen.style.display = "none"    
     scoreContainer.style.display = "none"
     // .removeAttribute("class")
     showQuestion();
@@ -141,6 +140,8 @@ function highScore() {
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "none"
     scoreContainer.style.display = "block"
+    clearInterval(quizDuration);
+    timerEl.textContent = "";
 }
 
 // when submit button is clicked call saveHighScore()
