@@ -128,12 +128,14 @@ function endQuiz() {
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "block"
     scoreContainer.style.display = "none"
-        // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
 
-        // button element
-    // var initialsBtn = document.createElement("button");
-    //     initialsBtn.innerHTML="Submit";
-    //     document.appendChild(initialsBtn);
+var initialsBtn = document.querySelector(".submit-btn");
+initialsBtn.addEventListener("click", function(){
+    // console.log("hello");
+    highScore()
+}
+);  
+// divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
 }
 
     // click highscore button
@@ -141,13 +143,18 @@ scoreBtn.addEventListener("click", highScore);
 
 function highScore() {
     // .removeAttribute("class")
+    timerEl.textContent = "";
     startScreen.style.display = "none";
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "none"
     scoreContainer.style.display = "block"
-    clearInterval(quizDuration);
-    timerEl.textContent = "";
+
+// var initialsBtn = document.querySelector(".score-btn");
+// initialsBtn.addEventListener("click", function(){
+//         // console.log("hello");
+//         startButton();
 }
+
 
 
 function saveHighScore(){
