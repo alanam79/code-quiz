@@ -24,12 +24,12 @@ header {
     width: 95%;
 }
 
-header nav {
+/* .high-scores-btn {
     text-align:left;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-}
+} */
 
 .btn {
     outline: none;

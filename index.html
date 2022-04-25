@@ -11,8 +11,10 @@
 
 <body>
     <header>
-        <nav id="high-score-button">View High Scores</nav>
-        <h4 id="countdown"></h4>
+        <div id="highScore">            
+            <button id="scoreBtn">View High Scores</button>
+            <h4 id="countdown"></h4>
+        </div>
     </header>
 
     <main class="page-content" id="page-content">
@@ -32,7 +34,8 @@
         <div id="endQuiz">
             <h2 id="all-done">All Done!</h2>
            <p>Enter initials: <input type="text" id="initials" /></p>
-           <button id="submitBtn">Submit</button>
+           <button class="btn" id="submitBtn">Go Back</button>
+           <button class="btn" id="submitBtn">Clear high scores</button>
         </div>
 
     </main>  
