@@ -35,7 +35,8 @@ var choicesContainer = document.querySelector("#choices");
 var timerEl = document.getElementById ("countdown");
 var endQuizContainer = document.getElementById ("endQuiz");
 var scoreButton = document.querySelector("#scoreBtn");
-var viewScores = document.getElementById("#high-score");
+var viewScore = document.getElementById("#high-score");
+var scoreScreen = document.getElementById("#score-container")
 var timeLeft = 75;
 var correct = 0;
 var currentQuestionIndex = 0;
@@ -61,13 +62,16 @@ function adjustTime(amount) {
     timerEl.textContent ="Time remaining: " + timeLeft + "s";
 }
 
+
+
     // starts quiz
 startButton.addEventListener("click", startGame);
 
 function startGame() {
     timer();
-    startScreen.style.display = "none";
-    // quizScreen.removeAttribute("class")
+    startScreen.style.display = "none";    
+    scoreContainer.style.display = "none"
+    // .removeAttribute("class")
     showQuestion();
   }
 
@@ -96,7 +100,7 @@ function showQuestion()  {
 
 function handleClick(){
     var answerResults = document.querySelector("#answer-results");
-// testing value of button against currentQuestion answer
+        // testing value of button against currentQuestion answer
     if(this.value === quizQuestions[currentQuestionIndex].answer){
         correct++;
         answerResults.textContent = "Correct!";
@@ -105,7 +109,7 @@ function handleClick(){
         adjustTime(-10);
         answerResults.textContent = "Wrong!";
     }
-        // add 1 to currentquestion index
+        // add 1 to currentquestionindex
     currentQuestionIndex++;
 
         // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
@@ -118,25 +122,29 @@ function handleClick(){
 
     // endQuiz
 function endQuiz() {      
-        // here  you want to stop the timer
+        // stop the timer
     clearInterval(quizDuration);
-
-    // hide the questionsContainer and show end screen
+    timerEl.textContent = "";
+        // hide the questionsContainer and show end screen
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "block"
-    // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
+    scoreContainer.style.display = "none"
+        // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
+}
+
+    // click highscore button
+scoreBtn.addEventListener("click", highScore);  
+
+function highScore() {
+    // .removeAttribute("class")
+    startScreen.style.display = "none";
+    quizScreen.style.display = "none"
+    endQuizContainer.style.display = "none"
+    scoreContainer.style.display = "block"
 }
 
 // when submit button is clicked call saveHighScore()
 var initialsInput = document.getElementById("initials")
-
-scoreButton.addEventListener("click", viewScores);
-
-function viewScores() {
-    // quizScreen.removeAttribute("class")
-    quizScreen.style.display = "none"
-    startScreen.style.display = "none";
-  }
 
 function saveHighScore(){
    // var intialsValue = initialsInput.value.trim()
