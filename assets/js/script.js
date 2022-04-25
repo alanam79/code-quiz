@@ -148,11 +148,6 @@ function highScore() {
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "none"
     scoreContainer.style.display = "block"
-
-// var initialsBtn = document.querySelector(".score-btn");
-// initialsBtn.addEventListener("click", function(){
-//         // console.log("hello");
-//         startButton();
 }
 
 
