@@ -34,9 +34,10 @@ var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
 var timerEl = document.getElementById ("countdown");
 var endQuizContainer = document.getElementById ("endQuiz");
-var timeLeft = 5;
+var timeLeft = 75;
 var correct = 0;
 var currentQuestionIndex = 0;
+var userScore = 0;
 
 
     //timer function
@@ -94,12 +95,15 @@ function showQuestion()  {
 function handleClick(){
 // testing value of button against currentQuestion answer
     if(this.value === quizQuestions[currentQuestionIndex].answer){
-        correct++
+        correct++;
+        currentQuestionIndex.textContent = "Correct!";
+        userScore++;        
     } else {
-        // adjustTime(-10);
+        adjustTime(-10);
+        currentQuestionIndex.textContent = "Wrong!";
     }
     // add 1 to currentquestion index
-    currentQuestionIndex++
+    currentQuestionIndex++;
 
     // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
     if(currentQuestionIndex === quizQuestions.length){
@@ -107,12 +111,13 @@ function handleClick(){
     } else {
         showQuestion()
     }
-}
+};
+
     // endQuiz
 function endQuiz() {      
         // here  you want to stop the timer
         clearInterval(quizDuration);
-        
+
     // hide the questionsContainer and show end screen
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "block"

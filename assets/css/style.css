@@ -47,13 +47,13 @@ header nav {
 .btn:hover {
     box-shadow: 0 2px;
     top: -2px;
+    background-color: blueviolet;
 }
 
 h1, p {
     font-size: 1.6rem;
     padding: 0 0 50px;
 }
-
 
 .choice {
     background-color: rgb(35, 35, 133);
@@ -68,6 +68,10 @@ h1, p {
     display: flex;
     justify-content: flex-start;
     width: 170px;
+}
+
+.choice:hover {
+    background-color: blueviolet;
 }
 
 .quiz-container {
