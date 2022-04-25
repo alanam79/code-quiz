@@ -3,27 +3,27 @@ var quizQuestions = [
     {
         Q: "Commonly used data types DO not include:",
         choices: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
-        answer: "alerts"
+        answer: "3. alerts"
     },
     {
         Q: "Arrays in JavaScript can be used to store _______.",
         choices: ["1. numbers and strings", "2. other arrays", "3. booleans", "4. all of the above"],
-        answer: "all of the above"
+        answer: "4. all of the above"
     },
     {
         Q: "String values must be enclosed with _____ when being assigned to variables",
         choices: ["1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"],
-        answer: "quotes"
+        answer: "3. quotes"
     },
     {
         Q: "The condition in an if/else statement is enclosed with ______.",
         choices: ["1. quotes", "2. curly brackets", "3. parenthesis", "4. square brackets"],
-        answer: "parenthesis"
+        answer: "3. parenthesis"
     },
     {
         Q: "A very useful tool used during development and debuggin for printing content to the debugger is:",
         choices: ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"],
-        answer: "console.log"
+        answer: "4. console.log"
     }
 ];
 
@@ -93,20 +93,21 @@ function showQuestion()  {
 }
 
 function handleClick(){
+    var answerResults = document.querySelector("#answer-results");
 // testing value of button against currentQuestion answer
     if(this.value === quizQuestions[currentQuestionIndex].answer){
         correct++;
-        currentQuestionIndex.textContent = "Correct!";
+        answerResults.textContent = "Correct!";
         userScore++;        
     } else {
         adjustTime(-10);
-        currentQuestionIndex.textContent = "Wrong!";
+        answerResults.textContent = "Wrong!";
     }
-    // add 1 to currentquestion index
+        // add 1 to currentquestion index
     currentQuestionIndex++;
 
-    // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
-    if(currentQuestionIndex === quizQuestions.length){
+        // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
+    if (currentQuestionIndex === quizQuestions.length){
         endQuiz();
     } else {
         showQuestion()
