@@ -35,12 +35,14 @@ var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
 var timerEl = document.getElementById ("countdown");
 var endQuizContainer = document.getElementById ("endQuiz");
-var scoreButton = document.querySelector("#scoreBtn");
 var viewScore = document.getElementById("#high-score");
 var scoreScreen = document.getElementById("#score-container")
+var clearScore = document.getElementById("#clearBtn");
+var goBack = document.getElementById("#goback");
+var submitInitials = document.getElementById("#submit-intials");
 var timeLeft = 75;
 var currentQuestionIndex = 0;
-var userScore = 0;
+var userScore = 10;
 
 
     //timer function
@@ -100,6 +102,7 @@ function handleClick(){
     var answerResults = document.querySelector("#answer-results");
         // testing value of button against currentQuestion answer
     if(this.value === quizQuestions[currentQuestionIndex].answer){
+        // correct++;
         answerResults.textContent = "Correct!";
         userScore++;        
     } else {
@@ -117,26 +120,10 @@ function handleClick(){
     }
 };
 
-    // endQuiz
-function endQuiz() {  
-        // stop the timer
-    clearInterval(quizDuration);
-    timerEl.textContent = "";
-        // hide the questionsContainer and show end screen
-    quizScreen.style.display = "none"
-    endQuizContainer.style.display = "block"
-    scoreContainer.style.display = "none"
-
-    var initialsBtn = document.querySelector(".submit-btn");
-    initialsBtn.addEventListener("click", function(){
-        highScore()
-}
-);  
-// divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
-}
-
     // click highscore button
-scoreBtn.addEventListener("click", highScore);  
+scoreBtn.addEventListener("click", () => {
+    highScore();
+});
 
 function highScore() {
     // .removeAttribute("class")
@@ -147,27 +134,45 @@ function highScore() {
     scoreContainer.style.display = "block"
 }
 
-function saveHighScore(){
-    var initialsValue = initialsInput.value.trim()
+    // endQuiz
+function endQuiz() {  
+        // stop the timer
+clearInterval(quizDuration);
+timerEl.textContent = "";
+        // hide the questionsContainer and show end screen
+quizScreen.style.display = "none"
+endQuizContainer.style.display = "block"
+scoreContainer.style.display = "none"
+ 
+var endPage = document.createElement("h2");
+choicesContainer.appendChild(endPage);
 
-    var score = {
-        user: savedInitials,
-        score: savedScore
-    }
+let blank = document.querySelector("#answer-determination");
+blank.innerHTML = "";
 
-    var newScore = {
-        initials: initialsValue,
-        score: score
-    }    
+endPage.innerHTML = "All done! Your final score is " + userScore + ". Enter your initials to save";
     
-    // save newScore to localstorage   
-    var newScore = function() {
-        var existing = localStorage.getItem('score');
-      };
-
-      scoreButton.addEventListener("click", () => {
-        saveHighScore();
-    })
+let scores = JSON.parse(localStorage.getItem("scores"));
+    
+const newScore = {
+initials: submitInitials, //get user initials here
+scores: userScore //put the score value here   
 }
+
+scores.push(newScore);
+
+localStorage.setItem("scores", JSON.stringify(scores));
+
+}
+// divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
+
+
+function saveHighScore(){
+    // var intialsValue = initialsInput.value.trim()
+    // var score = correct/questions.length   ** again youre going to need to remove the 0.
+    // test to make sure something was entered in initials otherwise dont do anything
+
+};
+
 
 

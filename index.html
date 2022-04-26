@@ -16,8 +16,8 @@
         </div>
         <div id="scoreContainer">
             <h2>High Scores</h2>
-            <button class="score-btn" id="submitBtn"><a href="./index.html">Go Back</a></button>
-            <button class="score-btn" id="submitBtn">Clear high scores</button>
+            <button class="score-btn" id="goBack"><a href="./index.html">Go Back</a></button>
+            <button class="score-btn" id="clearBtn">Clear high scores</button>
         </div>        
             <h4 id="countdown"></h4>        
     </header>
@@ -34,11 +34,15 @@
             <h2 id="question-title"></h2>
             <div id="choices" class="question-choices"></div>
             <div class="answer-results" id="answer-results"></div>
+            <div id="answer-determination"></div>
         </div>
 
         <div id="endQuiz">
             <h2 id="all-done">All Done!</h2>
-           <p>Enter initials: <input type="text" id="saveInitials"> <button class="submit-btn">Submit</button></p>
+        <div class="initials-form">
+            <p>Enter Initials: <input type="text" name="enter-initials"/></p>
+            <button class="submit-Btn" id="submit-initials" type="submit">Submit</button>
+        </div>
         </div>
 
     </main>  
