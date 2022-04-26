@@ -42,7 +42,7 @@ var goBack = document.getElementById("#goback");
 var submitInitials = document.getElementById("#submit-intials");
 var timeLeft = 75;
 var currentQuestionIndex = 0;
-var userScore = 10;
+var userScore = 0;
 
 
     //timer function
@@ -144,14 +144,14 @@ endQuizContainer.style.display = "block"
 scoreContainer.style.display = "none"
  
 var endPage = document.createElement("h2");
-choicesContainer.appendChild(endPage);
+endQuizContainer.appendChild(endPage);
 
 let blank = document.querySelector("#answer-determination");
 blank.innerHTML = "";
 
-endPage.innerHTML = "All done! Your final score is " + userScore + ". Enter your initials to save";
+endPage.innerHTML = "All done! Your final score is " + userScore + ".";
     
-let scores = JSON.parse(localStorage.getItem("scores"));
+let scores = JSON.parse(localStorage.getItem("scores"))||[];
     
 const newScore = {
 initials: submitInitials, //get user initials here

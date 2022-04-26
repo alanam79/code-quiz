@@ -73,6 +73,9 @@ a:visited, a:link {
     background-color: rgb(35, 35, 133);
     color: white;
     box-shadow: 0 3px;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 }
 
 .btn:hover {
@@ -133,3 +136,8 @@ h2 {
     padding: 10px;
 }
 
+.initials-form {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
