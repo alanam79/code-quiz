@@ -39,7 +39,6 @@ var scoreButton = document.querySelector("#scoreBtn");
 var viewScore = document.getElementById("#high-score");
 var scoreScreen = document.getElementById("#score-container")
 var timeLeft = 75;
-var correct = 0;
 var currentQuestionIndex = 0;
 var userScore = 0;
 
@@ -101,7 +100,6 @@ function handleClick(){
     var answerResults = document.querySelector("#answer-results");
         // testing value of button against currentQuestion answer
     if(this.value === quizQuestions[currentQuestionIndex].answer){
-        correct++;
         answerResults.textContent = "Correct!";
         userScore++;        
     } else {
@@ -129,10 +127,9 @@ function endQuiz() {
     endQuizContainer.style.display = "block"
     scoreContainer.style.display = "none"
 
-var initialsBtn = document.querySelector(".submit-btn");
-initialsBtn.addEventListener("click", function(){
-    // console.log("hello");
-    highScore()
+    var initialsBtn = document.querySelector(".submit-btn");
+    initialsBtn.addEventListener("click", function(){
+        highScore()
 }
 );  
 // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
@@ -150,22 +147,27 @@ function highScore() {
     scoreContainer.style.display = "block"
 }
 
-
-
 function saveHighScore(){
-   // var intialsValue = initialsInput.value.trim()
-   // var score = correct/questions.length   ** again youre going to need to remove the 0. 
+    var initialsValue = initialsInput.value.trim()
 
-    // test to make sure something was entered in initials otherwise dont do anything
+    var score = {
+        user: savedInitials,
+        score: savedScore
+    }
 
     var newScore = {
         initials: initialsValue,
         score: score
     }    
+    
     // save newScore to localstorage   
     var newScore = function() {
-        localStorage.setItem("tasks", JSON.stringify(score));
+        var existing = localStorage.getItem('score');
       };
+
+    clickViewScores.addEventListener("click", () => {
+        saveHighScore();
+    })
 }
 
 
