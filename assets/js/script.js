@@ -120,10 +120,6 @@ function handleClick(){
     }
 };
 
-    // click highscore button
-scoreBtn.addEventListener("click", () => {
-    highScore();
-});
 
 function highScore() {
     // .removeAttribute("class")
@@ -133,6 +129,11 @@ function highScore() {
     endQuizContainer.style.display = "none"
     scoreContainer.style.display = "block"
 }
+
+    // click highscore button
+scoreBtn.addEventListener("click", () => {
+    highScore();
+});
 
     // endQuiz
 function endQuiz() {  
