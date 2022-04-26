@@ -110,6 +110,12 @@ h2 {
     background-color: blueviolet;
 }
 
+.question-choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .quiz-container {
     justify-content: center;
     display: flex block;
