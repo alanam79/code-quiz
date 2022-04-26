@@ -120,7 +120,6 @@ function handleClick(){
     }
 };
 
-
 function highScore() {
     // .removeAttribute("class")
     timerEl.textContent = "";
@@ -135,12 +134,11 @@ scoreBtn.addEventListener("click", () => {
     highScore();
 });
 
+var initials;
     // endQuiz
 function endQuiz() {  
-        // stop the timer
 clearInterval(quizDuration);
 timerEl.textContent = "";
-        // hide the questionsContainer and show end screen
 quizScreen.style.display = "none"
 endQuizContainer.style.display = "block"
 scoreContainer.style.display = "none"
