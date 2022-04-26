@@ -165,7 +165,7 @@ function saveHighScore(){
         var existing = localStorage.getItem('score');
       };
 
-    clickViewScores.addEventListener("click", () => {
+      scoreButton.addEventListener("click", () => {
         saveHighScore();
     })
 }
