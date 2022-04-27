@@ -38,4 +38,4 @@ https://github.com/alanam79/code-quiz
 
 
 # Contribution
-Made with ❤️ by Alana McKeel,  my wonderful tutor Brian Gearty, and my TA's
+Made with ❤️ by Alana McKeel and Special Thanks To: my wonderful tutor, Brian Gearty, and my TA's: Brennan Spicer and Colton Watkins
