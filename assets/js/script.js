@@ -33,57 +33,58 @@ var startScreen = document.querySelector("#start-screen");
 var quizScreen = document.querySelector("#quiz-container");
 var questionContainer = document.querySelector("#questions");
 var choicesContainer = document.querySelector("#choices");
-var timerEl = document.getElementById ("countdown");
-var endQuizContainer = document.getElementById ("endQuiz");
-var viewScore = document.getElementById("#high-score");
-var scoreScreen = document.getElementById("#score-container")
-var clearScore = document.getElementById("#clearBtn");
-var goBack = document.getElementById("#goback");
-var submitInitials = document.getElementById("#submit-intials");
+var timerEl = document.getElementById("countdown");
+var endQuizContainer = document.getElementById("endQuiz");
+var viewScore = document.getElementById("high-score");
+var scoreScreen = document.getElementById("score-container")
+var clearBtn = document.getElementById("clearBtn");
+var goBack = document.getElementById("goback");
+var submitInitials = document.getElementById("submit-initials");
 var timeLeft = 75;
 var currentQuestionIndex = 0;
 var userScore = 0;
+var enterInitials = document.getElementById('enter-initials');
 
 
-    //timer function
-function timer(){
+//timer function
+function timer() {
     timerEl.textContent = "Time remaining: " + timeLeft + "s";
-    quizDuration = setInterval(function(){
+    quizDuration = setInterval(function () {
         if (timeLeft > 0) {
             adjustTime(-1);
         } else {
             endQuiz();
         }
-    },1000);
+    }, 1000);
 }
 function adjustTime(amount) {
     timeLeft += amount;
     if (timeLeft < 0) {
         timeLeft = 0;
     }
-    timerEl.textContent ="Time remaining: " + timeLeft + "s";
+    timerEl.textContent = "Time remaining: " + timeLeft + "s";
 }
 
-    // starts quiz
+// starts quiz
 startButton.addEventListener("click", startGame);
 
 function startGame() {
     timer();
-    startScreen.style.display = "none"    
+    startScreen.style.display = "none"
     scoreContainer.style.display = "none"
     // .removeAttribute("class")
     showQuestion();
-  }
+}
 
-function showQuestion()  { 
-    var currentQuestion = quizQuestions[currentQuestionIndex];  
-    
+function showQuestion() {
+    var currentQuestion = quizQuestions[currentQuestionIndex];
+
     var questionTitle = document.querySelector("#question-title")
     questionTitle.textContent = currentQuestion.Q;
 
     choicesContainer.innerHTML = "";
 
-    currentQuestion.choices.forEach(function(choice){
+    currentQuestion.choices.forEach(function (choice) {
         console.log("choice from currentQuestion.choices", choice)
 
         var choiceBtn = document.createElement("button");
@@ -98,22 +99,22 @@ function showQuestion()  {
     })
 }
 
-function handleClick(){
+function handleClick() {
     var answerResults = document.querySelector("#answer-results");
-        // testing value of button against currentQuestion answer
-    if(this.value === quizQuestions[currentQuestionIndex].answer){
+    // testing value of button against currentQuestion answer
+    if (this.value === quizQuestions[currentQuestionIndex].answer) {
         // correct++;
         answerResults.textContent = "Correct!";
-        userScore++;        
+        userScore++;
     } else {
         adjustTime(-10);
         answerResults.textContent = "Wrong!";
     }
-        // add 1 to currentquestionindex
+    // add 1 to currentquestionindex
     currentQuestionIndex++;
 
-        // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
-    if (currentQuestionIndex === quizQuestions.length){
+    // testing if currentQuestion index is at the last question end otherwise call showQuestion and keep it moving
+    if (currentQuestionIndex === quizQuestions.length) {
         endQuiz();
     } else {
         showQuestion()
@@ -127,51 +128,73 @@ function highScore() {
     quizScreen.style.display = "none"
     endQuizContainer.style.display = "none"
     scoreContainer.style.display = "block"
+
+    var scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+    scores.sort(function(a, b){
+        return b.scores - a.scores
+    })
+
+    scores.forEach(function (score) {
+        var liElement = document.createElement("li");
+        liElement.textContent = score.initials + "-" + score.scores;
+
+        var olElement = document.getElementById('highscore-list')
+        olElement.appendChild(liElement)
+    })
 }
 
-    // click highscore button
+// click highscore button
 scoreBtn.addEventListener("click", () => {
     highScore();
 });
 
-var initials;
-    // endQuiz
-function endQuiz() {  
-clearInterval(quizDuration);
-timerEl.textContent = "";
-quizScreen.style.display = "none"
-endQuizContainer.style.display = "block"
-scoreContainer.style.display = "none"
- 
-var endPage = document.createElement("h2");
-endQuizContainer.appendChild(endPage);
-
-let blank = document.querySelector("#answer-determination");
-blank.innerHTML = "";
-
-endPage.innerHTML = "All done! Your final score is " + userScore + ".";
-    
-let scores = JSON.parse(localStorage.getItem("scores"))||[];
-    
-const newScore = {
-initials: submitInitials, //get user initials here
-scores: userScore //put the score value here   
+function clearScore() {
+    localStorage.removeItem("scores");
+    window.location.reload();
 }
 
-scores.push(newScore);
+clearBtn.onclick=clearScore;
 
-localStorage.setItem("scores", JSON.stringify(scores));
+// endQuiz
+function endQuiz() {
+    clearInterval(quizDuration);
+    timerEl.textContent = "";
+    quizScreen.style.display = "none"
+    endQuizContainer.style.display = "block"
+    scoreContainer.style.display = "none"
 
+
+
+    var endPage = document.createElement("h2");
+    endQuizContainer.appendChild(endPage);
+    endPage.innerHTML = "Your final score is " + userScore + ".";
 }
 // divide correct/questions.length ** youre going to need to remove the 0. from the decimal look up .split()
 
 
-function saveHighScore(){
-    // var intialsValue = initialsInput.value.trim()
-    // var score = correct/questions.length   ** again youre going to need to remove the 0.
-    // test to make sure something was entered in initials otherwise dont do anything
+function saveHighScore() {
+    var intialsValue = enterInitials.value.trim()
+
+
+
+
+    let scores = JSON.parse(localStorage.getItem("scores")) || [];
+
+    const newScore = {
+        initials: intialsValue, //get user initials here
+        scores: userScore //put the score value here   
+    }
+
+    console.log("newScore in saveHighScore", newScore)
+
+    scores.push(newScore);
+    console.log("scores to save to localstorage", scores)
+    localStorage.setItem("scores", JSON.stringify(scores));
 
 };
+
+submitInitials.onclick = saveHighScore
 
 
 

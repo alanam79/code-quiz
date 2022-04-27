@@ -11,11 +11,13 @@
 
 <body>
     <header>
-        <div id="highScore">     
+        <div id="highScore"> 
+     
             <button class="high-score-btn" id="scoreBtn">View High Scores</button>
         </div>
         <div id="scoreContainer">
             <h2>High Scores</h2>
+            <ol id="highscore-list"></ol>   
             <button class="score-btn" id="goBack"><a href="./index.html">Go Back</a></button>
             <button class="score-btn" id="clearBtn">Clear high scores</button>
         </div>        
@@ -38,10 +40,10 @@
         </div>
 
         <div id="endQuiz">
-            <h2 id="all-done">All Done!</h2>
             <div id="answer-determination"></div>
+        <div><h2 id="all-done">All Done!</h2></div>
         <div class="initials-form">
-            <p>Enter Initials: <input type="text" name="enter-initials"/></p>
+            <p>Enter Initials: <input type="text" name="enter-initials" id="enter-initials"/></p>
             <button class="submit-Btn" id="submit-initials" type="submit">Submit</button>
         </div>
         </div>
