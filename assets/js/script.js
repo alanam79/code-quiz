@@ -130,8 +130,8 @@ function highScore() {
     scoreContainer.style.display = "block"
 
     var scores = JSON.parse(localStorage.getItem("scores")) || [];
-
-    scores.sort(function(a, b){
+    
+    scores.sort(function (a, b) {
         return b.scores - a.scores
     })
 
@@ -154,7 +154,7 @@ function clearScore() {
     window.location.reload();
 }
 
-clearBtn.onclick=clearScore;
+clearBtn.onclick = clearScore;
 
 // endQuiz
 function endQuiz() {
@@ -175,8 +175,6 @@ function endQuiz() {
 
 function saveHighScore() {
     var intialsValue = enterInitials.value.trim()
-
-
 
 
     let scores = JSON.parse(localStorage.getItem("scores")) || [];
